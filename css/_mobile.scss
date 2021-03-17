@@ -1,9 +1,15 @@
 // Wide Screens
 @include mediaXl {
+  .projects {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 // Desktops & Laptops
 @include mediaLg {
+  .projects {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 // Tablets & Small Laptops
@@ -59,8 +65,16 @@
       "job3";
     grid-template-columns: 1fr;
   }
+
+  // Work/Projects Page
+  .projects {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 // Smartphones
 @include mediaSm {
+  .projects {
+    grid-template-columns: 1fr;
+  }
 }

@@ -122,6 +122,59 @@ main {
   }
 }
 
+// Work/Projects Page
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+
+  img {
+    width: 100%;
+    border: 3px solid #fff;
+    opacity: 0.7;
+    @include easeInOut;
+
+    &:hover {
+      opacity: 1;
+      border-color: $secondary-color;
+    }
+  }
+
+  .btn-container {
+    width: 100%;
+    height: fit-content;
+    margin-top: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+// Button Styles
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin: 0rem 0.2rem 0.3rem;
+  border-radius: 3px;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+    @include easeInOut;
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($primary-color, 50);
+  color: #fff;
+}
+
+.btn-light {
+  @extend .btn;
+}
+
 // Footer
 #main-footer {
   text-align: center;
