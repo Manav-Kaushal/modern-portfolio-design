@@ -1,33 +1,5 @@
-$primary-color: #444;
-$secondary-color: #fcaf3b;
-$show-home-img: true;
-$home-image: url("https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg?auto=compress&cs=tinysrgb&h=650&w=940");
-$background-opacity: 0.8;
-
-@mixin easeInOut {
-  transition: all 0.3s ease-in-out;
-}
-
-@mixin background {
-  @if $show-home-img {
-    &#bg-img {
-      background-image: $home-image;
-      background-attachment: fixed;
-      background-size: cover;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-height: 100%;
-        min-width: 100%;
-        z-index: -1;
-        background-color: rgba($primary-color, $background-opacity);
-      }
-    }
-  }
-}
+@import "config";
+@import "menu";
 
 html {
   font-size: 14px;
