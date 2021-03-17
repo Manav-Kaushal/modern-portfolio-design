@@ -8,17 +8,14 @@
 
 // Tablets & Small Laptops
 @include mediaMd {
+  // Index Page
   main {
     align-items: center;
-    text-align: center;
+    // text-align: center;
 
     .lg-heading {
       line-height: 1;
       margin-bottom: 1.5rem;
-    }
-
-    .sm-heading {
-      margin: auto;
     }
   }
 
@@ -50,6 +47,17 @@
     .nav-link {
       font-size: 24px;
     }
+  }
+
+  // About Page
+  .about-info {
+    grid-template-areas:
+      "bioimage"
+      "bio"
+      "job1"
+      "job2"
+      "job3";
+    grid-template-columns: 1fr;
   }
 }
 
