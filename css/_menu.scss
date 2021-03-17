@@ -37,3 +37,103 @@
     }
   }
 }
+
+// Menu Overlay
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+  //   pointer-events: none;
+
+  &.show {
+    visibility: visible;
+  }
+
+  &-branding,
+  &-nav {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    width: 50%;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  // Menu Side [Right]
+  &-nav {
+    background: darken($primary-color, 6);
+    list-style-type: none;
+    // Slide in from top
+    transform: translate3d(0, -100%, 0);
+    @include easeInOut;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  // Branding Side [left]
+  &-branding {
+    background: $primary-color;
+    // Slide in from bottom
+    transform: translate3d(0, 100%, 0);
+    @include easeInOut;
+    opacity: 1 !important;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .portrait {
+      width: 250px;
+      height: 250px;
+      background: url("../img/portrait.jpg");
+      background-size: cover;
+      background-blend-mode: color;
+      border-radius: 50%;
+      border: 3px solid $secondary-color;
+    }
+  }
+
+  // Slide menu items from right
+  .nav-item {
+    transform: translate3d(600px, 0, 0);
+    @include easeInOut;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.current > a {
+      color: $secondary-color;
+    }
+  }
+
+  // Styling menu item links
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 1rem 0rem;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    @include easeInOut;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+// Delay each nav item slide by 0.1s
+@for $x from 1 through 4 {
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.2s;
+  }
+}
