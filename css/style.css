@@ -24,7 +24,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.9;
+  opacity: 0.95;
   visibility: hidden; }
   .menu.show {
     visibility: visible; }
@@ -155,9 +155,15 @@ main {
     margin-top: 1rem; }
     main .icons a {
       padding: 0.4rem;
+      margin-right: 1rem;
       transition: all 0.3s ease-in-out; }
       main .icons a:hover {
         color: #fcaf3b; }
+      main .icons a i {
+        transform: translateY(5px);
+        transition: all 0.2s ease-in-out; }
+        main .icons a i:hover {
+          transform: translateY(0px); }
   main#home {
     overflow: hidden; }
     main#home h1 {
@@ -167,7 +173,8 @@ main {
   display: grid;
   grid-gap: 30px;
   grid-template-areas: "bioimage bio bio" "job1 job2 job3";
-  grid-template-columns: 1fr 1fr 1fr; }
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0rem 1rem; }
   .about-info .bio-image {
     width: 200px;
     height: 200px;
@@ -180,10 +187,20 @@ main {
     grid-area: bio;
     text-align: justify;
     align-self: center; }
+    .about-info .bio h3 {
+      font-size: 2rem; }
   .about-info .job {
     background: #515151;
-    padding: 1rem;
+    padding: 2rem;
     border-left: 3px solid #fcaf3b; }
+    .about-info .job h3 {
+      color: #fcaf3b;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem; }
+    .about-info .job p {
+      font-size: 1.3rem;
+      text-align: justify; }
   .about-info .job-1 {
     grid-area: job1; }
   .about-info .job-2 {
@@ -194,15 +211,18 @@ main {
 .projects {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5rem; }
+  gap: 1.5rem;
+  margin-top: 3rem; }
   .projects img {
     width: 100%;
     border: 3px solid #fff;
     opacity: 0.7;
+    filter: grayscale(100%);
     transition: all 0.3s ease-in-out; }
     .projects img:hover {
       opacity: 1;
-      border-color: #fcaf3b; }
+      border-color: #fcaf3b;
+      filter: grayscale(0%); }
   .projects .btn-container {
     width: 100%;
     height: fit-content;
@@ -217,19 +237,68 @@ main {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 1rem;
-  margin-right: 1rem; }
-  .boxes div {
+  margin: 5rem 1rem 2rem 1rem;
+  /*btn_text*/
+  /*highlight*/ }
+  .boxes .div1 {
     font-size: 2rem;
     border: 3px solid #fff;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem;
     margin-bottom: 3rem;
+    min-width: 500px;
+    text-align: center;
+    text-decoration: none;
     transition: all 0.3s ease-in-out; }
-    .boxes div:hover {
-      background: #fcaf3b;
-      color: #000; }
-      .boxes div:hover span {
-        color: #000; }
+    .boxes .div1:hover {
+      text-decoration: none; }
+      .boxes .div1:hover a {
+        color: #444; }
+  .boxes .effect01 {
+    color: #fff;
+    border: 4px solid #000;
+    box-shadow: 0px 0px 0px 1px #000 inset;
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease-in-out; }
+    .boxes .effect01:hover {
+      border: 4px solid #fcaf3b;
+      background-color: #fff;
+      color: #444;
+      box-shadow: 0px 0px 0px 4px #eee inset; }
+  .boxes .effect01 span {
+    transition: all 0.2s ease-out;
+    z-index: 2; }
+  .boxes .effect01:hover span {
+    letter-spacing: 0.13em;
+    color: #333; }
+  .boxes .effect01:after {
+    background: #fff;
+    border: 0px solid #000;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 0.8;
+    position: absolute;
+    top: -50px;
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+    width: 50px;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    /*easeOutCirc*/
+    z-index: 1; }
+  .boxes .effect01:hover:after {
+    background: #fff;
+    border: 20px solid #000;
+    opacity: 0;
+    left: 120%;
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg); }
+
+.divider {
+  width: 100%;
+  border: 1px solid #515151;
+  margin: 2rem 0rem; }
 
 .btn, .btn-dark, .btn-light {
   display: inline-block;
@@ -247,11 +316,17 @@ main {
   color: #fff; }
 
 #main-footer {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
   padding: 1rem;
   background: #2b2b2b;
   color: #fff;
   height: 50px; }
+  #main-footer span {
+    color: #fcaf3b;
+    margin-left: 6px; }
 
 @media screen and (min-width: 1171px) {
   .projects {
