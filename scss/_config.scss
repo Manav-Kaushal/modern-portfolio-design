@@ -8,6 +8,11 @@ $background-opacity: 0.8;
   transition: all 0.3s ease-in-out;
 }
 
+@mixin easeInOutIcons {
+  transition: all 0.2s ease-in-out;
+}
+
+// For Index Page
 @mixin background {
   @if $show-home-img {
     &#bg-img {
